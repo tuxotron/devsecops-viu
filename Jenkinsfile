@@ -13,7 +13,13 @@ pipeline {
             }
         }
 
-        stage('Running static analysis') {
+        stage('Check dependencies') {
+            steps {
+                sh './mvnw verify'
+            }
+        }
+
+        stage('Build docker image') {
             steps {
                 sh 'docker build -t viu/devsecops .'
             }
