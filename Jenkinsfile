@@ -6,5 +6,11 @@ pipeline {
                 sh './mvnw clean compile'
             }
         }
+
+        stage('Running static analysis') {
+            steps {
+                sh './mvnw spotbugs:check'
+            }
+        }
     }
 }
