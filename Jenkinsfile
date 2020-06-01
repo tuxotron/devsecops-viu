@@ -12,5 +12,11 @@ pipeline {
                 sh './mvnw spotbugs:check'
             }
         }
+
+        stage('Running static analysis') {
+            steps {
+                sh 'docker build -t viu/devsecops .'
+            }
+        }
     }
 }
