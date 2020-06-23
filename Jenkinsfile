@@ -37,5 +37,11 @@ pipeline {
                 sh 'kubectl apply -f kube/'
             }
         }
+
+        stage('sqlmap scanning') {
+            steps {
+                sh 'PORT=$(kubectl get svc -o json | jq .items[0].spec.ports[0].nodePort); sqlmap --answers="follow=Y" --batch -u http://172.20.0.2:$PORT/user'
+            }
+        }
     }
 }
