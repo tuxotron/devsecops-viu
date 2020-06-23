@@ -33,6 +33,7 @@ pipeline {
 
         stage('Deploy to kubernetes') {
             steps {
+                sh 'kind export kubeconfig'
                 sh 'kubectl apply -f kube/'
             }
         }
