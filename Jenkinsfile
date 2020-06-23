@@ -27,7 +27,7 @@ pipeline {
 
         stage('Push docker image') {
             steps {
-                sh 'docker push tuxotron/devsecops:v1'
+                sh 'kind load docker-image tuxotron/devsecops:v1'
             }
         }
 
