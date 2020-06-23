@@ -4,7 +4,8 @@ target/
 !**/src/main/**
 !**/src/test/**
 
-contrast/
+contrast/contrast_security.yaml
+newrelic/newrelic.yml
 
 ### IntelliJ IDEA ###
 .idea

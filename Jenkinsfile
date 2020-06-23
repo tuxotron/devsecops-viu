@@ -21,7 +21,7 @@ pipeline {
 
         stage('Build docker image') {
             steps {
-                sh 'docker build -t viu/devsecops .'
+                sh 'docker build -t tuxotron/devsecops .'
             }
         }
     }

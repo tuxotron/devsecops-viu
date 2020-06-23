@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devsecops.v1
+  labels:
+    app: devsecops
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devsecops
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: devsecops
+        version: v1
+    spec:
+      containers:
+        - name: devsecops
+          image: tuxotron/devsecops:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - mountPath: /etc/contrast/java/
+              name: contrast
+            - mountPath: /etc/newrelic/
+              name: newrelic
+      volumes:
+        - name: contrast
+          secret:
+            secretName: contrast
+        - name: newrelic
+          secret:
+            secretName: newrelic
