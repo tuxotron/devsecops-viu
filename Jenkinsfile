@@ -21,7 +21,19 @@ pipeline {
 
         stage('Build docker image') {
             steps {
-                sh 'docker build -t tuxotron/devsecops .'
+                sh 'docker build -t tuxotron/devsecops:v1 .'
+            }
+        }
+
+        stage('Push docker image') {
+            steps {
+                sh 'docker push tuxotron/devsecops:v1'
+            }
+        }
+
+        stage('Deploy to kubernetes') {
+            steps {
+                sh 'kubectl apply -f kube/'
             }
         }
     }
