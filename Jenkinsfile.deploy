@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+    stages {
+
+        stage('Deploy to kubernetes') {
+            steps {
+                sh 'kind export kubeconfig'
+                sh 'kubectl -n production apply -f kube/'
+            }
+        }
+    }
+}
