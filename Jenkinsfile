@@ -31,6 +31,12 @@ pipeline {
             }
         }
 
+        stage('Scan docker image') {
+            steps {
+                sh 'clair-scanner --ip 172.16.249.128 tuxotron/devsecops:v1'
+            }
+        }
+
         stage('Push docker image') {
             steps {
                 sh 'kind load docker-image tuxotron/devsecops:v1'
