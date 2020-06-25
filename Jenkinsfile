@@ -18,12 +18,12 @@ pipeline {
                 sh './mvnw spotbugs:check'
             }
         }
-//
-//         stage('Check dependencies') {
-//             steps {
-//                 sh './mvnw verify'
-//             }
-//         }
+
+        stage('Check dependencies') {
+            steps {
+                sh './mvnw verify'
+            }
+        }
 //
 //         stage('Build docker image') {
 //             steps {
