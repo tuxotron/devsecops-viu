@@ -13,11 +13,11 @@ pipeline {
             }
         }
 
-//         stage('Running static analysis') {
-//             steps {
-//                 sh './mvnw spotbugs:check'
-//             }
-//         }
+        stage('Running static analysis') {
+            steps {
+                sh './mvnw spotbugs:check'
+            }
+        }
 //
 //         stage('Check dependencies') {
 //             steps {
