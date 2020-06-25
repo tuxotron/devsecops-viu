@@ -33,22 +33,22 @@ pipeline {
 
         stage('Scan docker image') {
             steps {
-                sh 'clair-scanner --ip 172.16.249.128 tuxotron/devsecops:v1'
+                sh 'clair-scanner --ip 172.16.249.128 tuxotron/devsecops:v1 || exit 0'
             }
         }
 
-//         stage('Push docker image') {
-//             steps {
-//                 sh 'kind load docker-image tuxotron/devsecops:v1'
-//             }
-//         }
-//
-//         stage('Deploy to kubernetes') {
-//             steps {
-//                 sh 'kind export kubeconfig'
-//                 sh 'kubectl apply -f kube/'
-//             }
-//         }
+        stage('Push docker image') {
+            steps {
+                sh 'kind load docker-image tuxotron/devsecops:v1'
+            }
+        }
+
+        stage('Deploy to kubernetes') {
+            steps {
+                sh 'kind export kubeconfig'
+                sh 'kubectl apply -f kube/'
+            }
+        }
 //
 //         stage('sqlmap scanning') {
 //             steps {
