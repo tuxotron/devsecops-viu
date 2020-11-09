@@ -107,7 +107,7 @@
                 <configuration>
                     <failBuildOnCVSS>1</failBuildOnCVSS>
 <!--                    <failBuildOnCVSS>8</failBuildOnCVSS>-->
-                    <failBuildOnAnyVulnerability>true</failBuildOnAnyVulnerability>
+                    <failBuildOnAnyVulnerability>false</failBuildOnAnyVulnerability>
                     <cveValidForHours>-1</cveValidForHours>
                 </configuration>
                 <executions>
