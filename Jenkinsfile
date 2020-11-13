@@ -36,24 +36,24 @@ pipeline {
                 sh 'clair-scanner --ip 172.16.249.128 tuxotron/devsecops:v1 || exit 0'
             }
         }
-//
-//         stage('Push docker image') {
-//             steps {
-//                 sh 'kind load docker-image tuxotron/devsecops:v1'
-//             }
-//         }
-//
-//         stage('Deploy to kubernetes') {
-//             steps {
-//                 sh 'kind export kubeconfig'
-//                 sh 'kubectl apply -f kube/'
-//             }
-//         }
-//
-//         stage('sqlmap scanning') {
-//             steps {
-//                 sh 'PORT=$(kubectl get svc -o json | jq .items[0].spec.ports[0].nodePort); sqlmap --answers="follow=Y" --batch -u http://172.18.0.2:$PORT/user'
-//             }
-//         }
+
+        stage('Push docker image') {
+            steps {
+                sh 'kind load docker-image tuxotron/devsecops:v1'
+            }
+        }
+
+        stage('Deploy to kubernetes') {
+            steps {
+                sh 'kind export kubeconfig'
+                sh 'kubectl apply -f kube/'
+            }
+        }
+
+        stage('sqlmap scanning') {
+            steps {
+                sh 'PORT=$(kubectl get svc -o json | jq .items[0].spec.ports[0].nodePort); sqlmap --answers="follow=Y" --batch -u http://172.18.0.2:$PORT/user'
+            }
+        }
     }
 }
