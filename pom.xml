@@ -86,7 +86,7 @@
                 <configuration>
                     <effort>Max</effort>
                     <threshold>Low</threshold>
-                    <failOnError>true</failOnError>
+                    <failOnError>false</failOnError>
 <!--                    <failOnError>true</failOnError>-->
                     <includeFilterFile>config/fsb-include.xml</includeFilterFile>
                     <excludeFilterFile>config/fsb-exclude.xml</excludeFilterFile>
