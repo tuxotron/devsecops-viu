@@ -1,9 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('test') {
+        stage('Compiling application') {
             steps {
-                sh 'echo test'
+                sh './mvnw clean compile'
             }
         }
     }
