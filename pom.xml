@@ -86,8 +86,8 @@
                 <configuration>
                     <effort>Max</effort>
                     <threshold>Low</threshold>
-                    <failOnError>false</failOnError>
-<!--                    <failOnError>true</failOnError>-->
+<!--                    <failOnError>false</failOnError>-->
+                    <failOnError>true</failOnError>
                     <includeFilterFile>config/fsb-include.xml</includeFilterFile>
                     <excludeFilterFile>config/fsb-exclude.xml</excludeFilterFile>
                     <plugins>
@@ -107,7 +107,7 @@
                 <configuration>
 <!--                    <failBuildOnCVSS>1</failBuildOnCVSS>-->
 <!--                    <failBuildOnCVSS>8</failBuildOnCVSS>-->
-                    <failBuildOnAnyVulnerability>false</failBuildOnAnyVulnerability>
+                    <failBuildOnAnyVulnerability>true</failBuildOnAnyVulnerability>
                     <cveValidForHours>-1</cveValidForHours>
                 </configuration>
                 <executions>
