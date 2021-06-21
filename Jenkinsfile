@@ -17,5 +17,11 @@ pipeline {
                 sh './mvnw spotbugs:check'
             }
         }
+
+        stage('Check dependencies') {
+            steps {
+                sh './mvnw verify'
+            }
+        }
     }
 }
